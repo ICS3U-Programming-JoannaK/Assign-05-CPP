@@ -14,7 +14,7 @@ int convertTime(const int playerTimes[], int convertedTimes[][3]) {
     int count = 0;
     // This loop goes through all 3 players
     for (int counter = 0; counter < 3; counter++) {
-        int time = (int)playerTimes[counter];
+        int time = static_cast<int>playerTimes[counter];
         // calculate and store hours, minutes and remaining seconds
         // hours
         convertedTimes[count][0] = time / 3600;
@@ -44,15 +44,14 @@ int main() {
         // total number of players
         const int playerCount = 3;
         // array to store the times entered by the user
-        int playerTimes[playerCount];
-         
+    int playerTimes[kPlayerCount];
         // loop to input each player's time
         for (int counter = 0; counter < playerCount; counter++) {
             // this loop makes sure the user's input is valid
             while (true) {
                 std::cout << "Enter the player's time in seconds:";
                 std::cin >> playerTimes[counter];
-                // makes sure the user's input is higher than 0, seconds cant be negative
+// makes sure the user's input is higher than 0, seconds cant be negative
                 if (playerTimes[counter] < 0) {
                     std::cout << "Not valid input. Seconds cannot be negative";
                     // if the input is valid, it breaks out of the loop
@@ -61,18 +60,17 @@ int main() {
                 break;
             }
         }
-        
-        // Declaring an array to hold converted time values (hours, minutes, seconds)
-        int convertedTimes[playerCount][3];
-        // converts all entered times and the number of valid conversions 
-        int count = convertTime(playerTimes, convertedTimes);
+// Declaring an array to hold converted time values (hours, minutes, seconds)
+int convertedTimes[playerCount][3];
+        // converts all entered times and the number of valid conversions
+int count = convertTime(playerTimes, convertedTimes);
 
         // prints out the converted time for each player
         for (int counter = 0; counter < count; counter++) {
             std::cout << "Player "
                       << (counter + 1) << " ran "
-                      << convertedTimes[counter][0] << " hours, "
-                      << convertedTimes[counter][1] << " minutes, "
-                      << convertedTimes[counter][2] << " remaining seconds." << std::endl;
+        << convertedTimes[counter][0] << " hours, "
+        << convertedTimes[counter][1] << " minutes, "
+        << convertedTimes[counter][2] << " remaining seconds." << std::endl;
         }
 }
