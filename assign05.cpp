@@ -14,7 +14,7 @@ int convertTime(const int playerTimes[], int convertedTimes[][3]) {
     int count = 0;
     // This loop goes through all 3 players
     for (int counter = 0; counter < 3; counter++) {
-        int time = static_cast<int>playerTimes[counter];
+        int time = static_cast<int>(playerTimes[counter]);
         // calculate and store hours, minutes and remaining seconds
         // hours
         convertedTimes[count][0] = time / 3600;
@@ -41,10 +41,11 @@ int main() {
         std::cout << "\n"
                   << std::endl;
 
-        // total number of players
         const int playerCount = 3;
-        // array to store the times entered by the user
-    int playerTimes[kPlayerCount];
+
+        // declaring variables
+        int playerTimes[playerCount];
+
         // loop to input each player's time
         for (int counter = 0; counter < playerCount; counter++) {
             // this loop makes sure the user's input is valid
@@ -53,7 +54,7 @@ int main() {
                 std::cin >> playerTimes[counter];
 // makes sure the user's input is higher than 0, seconds cant be negative
                 if (playerTimes[counter] < 0) {
-                    std::cout << "Not valid input. Seconds cannot be negative";
+                    std::cout << "Not valid input. Seconds cannot be negative" << std::endl;
                     // if the input is valid, it breaks out of the loop
                 } else {
                 }
