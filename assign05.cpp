@@ -57,8 +57,8 @@ int main() {
                     std::cout << "Not valid input. Seconds cannot be negative" << std::endl;
                     // if the input is valid, it breaks out of the loop
                 } else {
+                    break;
                 }
-                break;
             }
         }
 // Declaring an array to hold converted time values (hours, minutes, seconds)
